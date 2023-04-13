@@ -22,7 +22,7 @@
         <br>
         <input class="w3-input w3-border" required name="lastName" placeholder="Enter Last Name">
         <br>
-        <button class="w3-button w3-round btn-block w3-green" type="submit">Submit</button>
+        <button class="w3-button w3-round btn-block w3-green" type="submit" >Submit</button>
     </form>
     <div>
         <button class="w3-btn w3-light-blue w3-round-large" onclick="location.href='/users'">Users</button>
