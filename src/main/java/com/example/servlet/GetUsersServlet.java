@@ -2,6 +2,7 @@ package com.example.servlet;
 
 import com.example.Warehouse;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +14,12 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/users")
 public class GetUsersServlet extends HttpServlet {
     String path = "/jsp/users.jsp";
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Warehouse warehouse = Warehouse.getInstance();
