@@ -4,17 +4,16 @@ import com.example.User;
 import com.example.Warehouse;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/add")
 public class AddUserServlet extends HttpServlet {
-    String path = "/jsp/add.jsp";
+    String path;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        path = getServletConfig().getInitParameter("pathToAddJsp");
         getServletContext().getRequestDispatcher(path).forward(req,resp);
     }
 
