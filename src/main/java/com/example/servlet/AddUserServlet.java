@@ -4,11 +4,16 @@ import com.example.User;
 import com.example.Warehouse;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+@WebServlet(urlPatterns = "/add", initParams = {
+        @WebInitParam(name = "pathToAddJsp", value = "/jsp/add.jsp"),
+})
 public class AddUserServlet extends HttpServlet {
     String path;
     @Override
