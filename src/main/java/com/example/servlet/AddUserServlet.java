@@ -4,22 +4,17 @@ import com.example.User;
 import com.example.Warehouse;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/add", initParams = {
-        @WebInitParam(name = "pathToAddJsp", value = "/jsp/add.jsp"),
-})
+@WebServlet(urlPatterns = "/add")
 public class AddUserServlet extends HttpServlet {
-    String path;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        path = getServletConfig().getInitParameter("pathToAddJsp");
-        getServletContext().getRequestDispatcher(path).forward(req,resp);
+        getServletContext().getRequestDispatcher("/jsp/add.jsp").forward(req,resp);
     }
 
     @Override
@@ -33,6 +28,6 @@ public class AddUserServlet extends HttpServlet {
 
         req.setAttribute("user", user);
         ServletContext servletContext = getServletContext();
-        servletContext.getRequestDispatcher(path).forward(req, resp);
+        servletContext.getRequestDispatcher("/jsp/add.jsp").forward(req, resp);
     }
 }

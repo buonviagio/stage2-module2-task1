@@ -16,13 +16,11 @@ import java.io.IOException;
 })
 
 public class GetUsersServlet extends HttpServlet {
-    String path;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Warehouse warehouse = Warehouse.getInstance();
         req.setAttribute("users", warehouse.getUsers());
         ServletContext servletContext = getServletContext();
-        path = getServletConfig().getInitParameter("pathToUsersJsp");
-        servletContext.getRequestDispatcher(path).forward(req, resp);
+        servletContext.getRequestDispatcher("/jsp/users.jsp").forward(req, resp);
     }
 }
